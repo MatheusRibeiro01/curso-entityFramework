@@ -7,6 +7,15 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Compra> Compra { get; set; }
+        public DbSet<Promocao> Promocoes { get; set; }
+
+        //Mapeamento de chave primaria composta para a tabela de join PromocaoProduto
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PromocaoProduto>().
+                HasKey(pp => new { pp.PromocaoId, pp.ProdutoId });
+            base.OnModelCreating(modelBuilder);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
