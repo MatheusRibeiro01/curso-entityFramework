@@ -11,6 +11,7 @@ namespace Alura.Loja.Testes.ConsoleApp
         public string Unidade { get; set; }
         // Inserindo propriedade Promocoes para indicar relacionamento de muitos para muitos com a tabela de Produtos
         public IList<PromocaoProduto> Promocoes { get; set; }
+        public IList<Compra> Compras { get; set; }
 
         public override string ToString()
         {
